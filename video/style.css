@@ -1,0 +1,100 @@
+html,body{
+  margin: 0;
+  padding: 0;
+}
+.prism-player,.prism-player video{
+  position: relative;
+  opacity: 1;
+}
+.prism-player,.prism-player img{
+  height: 20%;
+  position: absolute;
+  display: block;
+  z-index: 10;
+}
+.prism-player{
+  width: 100%;
+}
+.prism-player img{
+  opacity: 1;
+}
+/*更新浏览器*/
+.update_browser{
+  color: #fff;
+  text-align: center;
+}
+.update_browser h2{
+  font-size: 16px;
+  font-weight: inherit;
+  margin-top: 10px;
+}
+.update_browser img{
+  width: 10%;
+  height: auto;
+  position: inherit;
+  display: block;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+
+/*打点数据*/
+#textDialog{
+  width: 100%;
+  height: 100%;
+  background: #f3f3f3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+}
+#textDialog iframe{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+h2{
+  margin: 0;
+}
+.close{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+.prism-progress-spot{
+  height: 100%;
+  top: -2px;
+  border: 2px solid #fff;
+  position: absolute;
+}
+.prism-progress-spot:hover+.prism-progress-text{
+  display: block;
+}
+.prism-progress-text{
+  position: absolute;
+  bottom: 20px;
+  background: rgba(0,0,0,.8);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+  color: #FFF;
+  font-size: 14px;
+  border-radius: 7.5px;
+  padding: 0 6px;
+  text-align: center;
+  display: none;
+}
+/*flash播放器打点倒计时提示*/
+.vplayer_layer{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(255,255,255,.2);
+}

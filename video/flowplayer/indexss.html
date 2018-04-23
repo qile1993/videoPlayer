@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>Flowplayer - flashls</title>
+
+<script type="text/javascript" src="flowplayer-3.2.12.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="flowplayer.ipad-3.2.12.min.js"></script>
+<script type="text/javascript" src="../libs/js2flash.js"></script>
+<script type="text/javascript" src="../libs/JSLoaderFragment.js"></script>
+<script type="text/javascript" src="../libs/JSLoaderPlaylist.js"></script>
+
+</head>
+
+
+<body>
+	<div>
+		<a style="display: block; width: 100%;height: 350px;" id="player"></a>
+	</div>
+	<script type="text/javascript">
+		var flowplayer = flowplayer("player", "flowplayer.swf", {
+			plugins: {
+				httpstreaming: {
+					url: 'flashlsFlowPlayer.swf'
+				}
+			},
+			clip: {
+				url: "http://testopenbj.oss-cn-beijing.aliyuncs.com/testdevcenter/hlstranscoded/TMyhtypTEST20180411014931921.m3u8",
+				ipadUrl: "http://testopenbj.oss-cn-beijing.aliyuncs.com/testdevcenter/hlstranscoded/TMyhtypTEST20180411014931921.m3u8",
+				urlResolvers: ["httpstreaming","brselect"],
+				provider: "httpstreaming",
+				autoPlay: true
+				},
+				log: {
+				level: 'debug',
+				filter: 'org.osmf.*, org.electroteque.m3u8.*, org.flowplayer.bitrateselect.*'
+			}
+		}).ipad();
+		console.log(flowplayer)
+	</script>
+</body>
+</html>

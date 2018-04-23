@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge" >
+  <meta name="viewport"   content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  <title>播放器demo</title>
+  <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.5.1/skins/default/aliplayer-min.css" />
+  <link rel="stylesheet" href="../style.css">
+  <script type="text/javascript" src="flowplayer-3.2.12.min.js"></script>
+  <script type="text/javascript" src="flowplayer.ipad-3.2.12.min.js"></script>
+  <script type="text/javascript" src="../libs/js2flash.js"></script>
+  <script type="text/javascript" src="../libs/JSLoaderFragment.js"></script>
+  <script type="text/javascript" src="../libs/JSLoaderPlaylist.js"></script>
+</head>
+<body>
+  <div class="prism-player" id="J_prismPlayer"></div>
+  <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="../jquery.min.js"></script> -->
+  <script type="text/javascript" src="//g.alicdn.com/de/prismplayer/2.5.1/aliplayer-min.js"></script>
+  <script src="https://g.alicdn.com/de/prismplayer/2.6.0/aliplayer-flash-min.js"></script>
+  <script src="https://g.alicdn.com/de/prismplayer/2.6.0/aliplayer-h5-min.js"></script>
+  <script type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.5.1/json/json.min.js"></script>
+  
+  <script type="text/javascript" src="../index.js"></script>
+  <script>
+    //测试字幕文件
+    var TrackData = [{
+      kind: 'subtitles',
+      src: '../static/vtt/Chinese.vtt',
+      srclang: 'zh',
+      label: 'Chinese'
+    }, {
+      kind: 'subtitles',
+      src: '../static/vtt/English.vtt',
+      srclang: 'en',
+      label: 'English'
+    }];
+    // 测试打点数据
+    var markers = [
+      {
+        time: 4,
+        text: "本节特性：前端自动化流程的构建与流程自动化测试流程持续集成1111111111111",
+        overlayText: "<iframe src='http://www.baidu.com'></iframe><button onclick='player.play();'>关闭</button>"
+      }, {
+        time:10,
+        text: "本节特性：<br />前端自动化流程的构建与流程自动化测试流程持续集成22222222",
+        overlayText: "222222<button onclick='player.play();'>关闭</button>"
+      }, {
+        time: 26,
+        text: "本节特性：前端自动化流程的构建与流程自动化测试流程持续集成333333333",
+        overlayText: "333333<button onclick='player.play();'>关闭</button>"
+      }, {
+        time: 39,
+        text: "本节特性：前端自动化流程的构建与流程自动化测试流程持续集成44444444444",
+        overlayText: "444444<button onclick='player.play();'>关闭</button>"
+      }
+    ]
+
+
+    window.videoPlayer.init({
+      id: 'J_prismPlayer',//容器名称
+      // size:['100%','300px'],
+      subtitle:{//字幕
+        show: false,
+        subtitleData: TrackData
+      },
+      dotPrompt:{//打点
+        show: false,
+        dotPromptData: markers
+      },
+      isDrag:false,
+      cover:'http://img.taopic.com/uploads/allimg/140729/240450-140HZP45790.jpg',
+      // source:'//player.alicdn.com/video/aliyunmedia.mp4'
+      source:'http://testopenbj.oss-cn-beijing.aliyuncs.com/testdevcenter/hlstranscoded/TMyhtypTEST20180411014931921.m3u8'
+      //waterMark:"http://wanzao2.b0.upaiyun.com/system/pictures/37317948/original/1468993411_600x600.png|TR|0.2|1"//位置（TL/TR/BL/BR  比例和透明度选填）
+      //source: "http://video.ykwork.cn/c61b04adfb3b4952a2e671a51be26d57/c3881a3b469848d08d2b8c660c24a82a-9553579fd33a4e9fda6349aa841a7aa7-ld.m3u8"//视频地址
+    },function(player){
+      player.mergingMethod.paused(function(){
+        console.log('视频播放暂停')
+      })
+      player.mergingMethod.ended(function(){
+        console.log('视频播放完成')
+        var newUrl = "http://video.ykwork.cn/c61b04adfb3b4952a2e671a51be26d57/c3881a3b469848d08d2b8c660c24a82a-9553579fd33a4e9fda6349aa841a7aa7-ld.m3u8";
+        //player.mergingMethod.loadByUrl(newUrl)//播放新的视频
+      })
+      player.mergingMethod.play(function(){
+        console.log('视频播放继续')
+      })
+      //player.mergingMethod.seek();
+    });
+  </script>
+</body>
